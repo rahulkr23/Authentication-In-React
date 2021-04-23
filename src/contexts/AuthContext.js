@@ -21,8 +21,9 @@ const[loading, setLoading] = useState(true)
 
     useEffect(() => {
      const unsubscribe = auth.onAuthStateChanged(user => {
+        setCurrentUser(user)
          setLoading(false)
-            setCurrentUser(user)
+           
     
         })
         return unsubscribe
@@ -35,10 +36,9 @@ const[loading, setLoading] = useState(true)
         signup
     }
     return(
-        <AuthContext.Provider value ={value}>{children}</
-        
-
-AuthContext.Provider>
+        <AuthContext.Provider value ={value}>
+        {!loading && children}
+        </AuthContext.Provider>
 
     )
 }

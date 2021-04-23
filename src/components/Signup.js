@@ -1,4 +1,4 @@
-import { Alert } from 'bootstrap';
+
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext'
@@ -7,7 +7,7 @@ export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup,currentUser } = useAuth()
+    const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] =  useState(false)
 
@@ -40,7 +40,7 @@ export default function Signup() {
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Sign Up</h2>
-                    {JSON.stringify(currentUser)}
+                    {/* {currentUser.email} */}
                     {error && <Alert varient="danger">{error}</Alert>}
                     <Form onSubmit= {handleSubmit}>
                         <Form.Group id="email">
